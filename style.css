@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 *{
     padding:0;
     margin: 0;
@@ -5,10 +7,13 @@
 }
 body{
    display: flex;
+   font-family: 'Nunito', sans-serif;
+   font-size: 16px;
+   font-weight: lighter;
    flex-direction: column;
    align-items: center;
-   background: black;
-   color:white;
+   background: #232426;
+   color:#f5f9ff;
 }
 .container{
   width: 100%;
@@ -16,30 +21,65 @@ body{
   justify-content: center;
   align-items: center;
   height: 400px;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 .bar{
   width: 20px; 
-  height: 14px;
+  height: 20px;
   border-radius: 10px;
   margin: 0 5px;
 }
 .controls{
-    background: lightcoral;
     display: flex;
-    align-self: flex-start;
 }
 i{
-  font-size: 40px;
-  color: white;s
+  font-size: 25px;
+  color: #f5f9ff;
 }
-i:hover{
-    color:lightblue;
-}
-button{
+
+i:hover{color:lightblue;}
+
+.controlbtn{
   background: transparent;
   border: none;
 }
-button:focus{
-  outline:0;
+.controlbtn:focus{outline:0;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
+#color{
+  align-self: flex-start;
+}
+.mp3btn,.colorbtn{
+  border: 1px solid #f5f9ff; 
+  background: transparent;
+  width: 240px;
+  padding: 7px 20px;
+  color: #f5f9ff; 
+  font-size: 16px; 
+}
+.mp3:active{outline:0;}
+.colorbtn:active{outline:0;}
+
+.dropdown-content {
+  display:none;
+  position: absolute;
+  width: 240px;
+  z-index: 1;
+  text-align: center;
+  border: 1px solid #f5f9ff; 
+}
+.dropdown-content a {
+  display: block;
+  padding: 15px 10px;
+  text-decoration: none;
+  color:#f5f9ff;
+}
+.dropdown-content a:hover {background-color: #49515c;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .mp3btn {background-color: #3e8e41;}
+

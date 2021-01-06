@@ -10,19 +10,39 @@
   <body>
 
     <audio preload="auto" crossorigin="anonymous">
-        <source src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3" type="audio/mpeg" preload="auto">
+        <source id="source" src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3" type="audio/mpeg" preload="auto">
+        Your browser does not support the audio format.
     </audio>
 
     <div class="container"></div>
 
     <div class="controls">
-        <button onclick="play()">
+        <button class="controlbtn" id="playbtn">
             <i class="fas fa-play"></i>
         </button>
 
-        <button onclick="pause()">
+        <button class="controlbtn" id="pausebtn">
             <i class="fas fa-pause"></i>
         </button>
+    </div>
+
+    <div class="choices">
+      <div class="dropdown" id="mp3">
+        <button class="mp3btn">mp3</button>
+        <div class="dropdown-content">
+          <a href="#" class="mp3" id="song1">last summer by ikson</a>
+          <a href="#" class="mp3" id="song2">goosebumps by jaylon ashaun</a>
+        </div>
+      </div>
+
+      <div class="dropdown" id="color">
+        <button class="colorbtn">theme</button>
+        <div class="dropdown-content">
+          <a href="#" class="color">citrus</a>
+          <a href="#" class="color">galaxy</a>
+          <a href="#" class="color">ocean</a>
+        </div>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
