@@ -9,13 +9,23 @@
   </head>
   <body>
 
-    <div class="container"></div>
-
-    <audio controls >
-      <source src="Paradise.mp3" type="audio/mpeg" preload="auto">
+    <audio preload="auto" crossorigin="anonymous">
+        <source src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3" type="audio/mpeg" preload="auto">
     </audio>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--jQuery import -->
+    <div class="container"></div>
+
+    <div class="controls">
+        <button onclick="play()">
+            <i class="fas fa-play"></i>
+        </button>
+
+        <button onclick="pause()">
+            <i class="fas fa-pause"></i>
+        </button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script> <!--JS import -->
   </body>
 </html>

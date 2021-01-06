@@ -1,27 +1,45 @@
 *{
-  padding:0;
-  margin: 0;
-  box-sizing: border-box;
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
 }
 body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: black;
-}
-audio{
-  position: absolute;
-  bottom: 150px;
-}
-audio:focus{
-  outline: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background: black;
+   color:white;
 }
 .container{
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 510px;
-  position: relative;
-  top: 100px;
+  height: 400px;
+  margin-top: 150px;
+}
+.bar{
+  width: 20px; 
+  height: 14px;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+.controls{
+    background: lightcoral;
+    display: flex;
+    align-self: flex-start;
+}
+i{
+  font-size: 40px;
+  color: white;s
+}
+i:hover{
+    color:lightblue;
+}
+button{
+  background: transparent;
+  border: none;
+}
+button:focus{
+  outline:0;
 }
