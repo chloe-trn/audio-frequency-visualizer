@@ -1,3 +1,5 @@
+// instead of creating new object every time, just update one
+
 const colorThemes = [
     ["#F8888A","#F77B7D","#F77F7D","#F7877E","#F88D7F", // citrus
     "#F88F7F","#F8967F","#F99A80","#F9A381","#F9A581","#F9A782","#FAAC82",
@@ -21,7 +23,7 @@ const colorThemes = [
     "#A4BEE3","#A6BCE3","#A7BCE4","#A8BAE4","#AAB9E5","#ABB7E4","#ACB6E5"]
 ];
 const gradients = [
-    "linear-gradient(to right, #C6FFDD , #FBD786, #f7797d)", // citrus
+    "linear-gradient(to right, #f7797d, #FBD786, #C6FFDD)", // citrus
     "linear-gradient(to right, #12c2e9, #c471ed, #f7797d)",  // galaxy
     "linear-gradient(to right, #74ebd5, #ACB6E5)"            // seafoam
 ];
@@ -58,7 +60,6 @@ const index = 18;   // frequency index interval
 const offset = 75;   // frequency to start indexing at
 
 let audio = document.querySelector("audio");
-let audioInfo;
 let currentTime = document.getElementById("current-time");
 let timer;
 
@@ -223,6 +224,7 @@ class Timer {
 }
 
 // INITIALIZATION OF OBJECTS
+let audioInfo = new AudioInfo();
 let controlCenter = new ControlCenter(splashBtn,controlsBtn,controls);
 let audioBars = new Bars(container,numBars,defaultBarHeight,index,offset,colorThemes);   
 let audioPlayer = new AudioPlayer(playBtn,pauseBtn,progressBar,fill);          
@@ -253,7 +255,10 @@ function createAudioContext(){
     let freqDataArray = new Uint8Array(freqArrayLength);            // create frequency array of unsigned integer type
 
     analyzerNode.getByteFrequencyData(freqDataArray);               // pass frequency array into the analyzer node and change it into byte format
-    audioInfo = new AudioInfo(audioCtx,analyzerNode,freqDataArray); // store audio info in object
+   
+    audioInfo.audioCtx = audioCtx;                 // store audio info in object
+    audioInfo.analyzerNode = analyzerNode; 
+    audioInfo.freqDataArray = freqDataArray; 
 }
 // change height of bars according to decibal value stored in frequency array
 function renderBars(){
@@ -263,7 +268,7 @@ function renderBars(){
 
     analyzerNode.getByteFrequencyData(freqDataArray); // get frequencies present at current audio moment
 
-    for(let i = 0; i < numBars ; i++) { // loop through bars and change their heights
+    for(let i = 0; i < audioBars.numBars ; i++) { // loop through bars and change their heights
 
       let base = freqDataArray[( i * index ) + offset ];             // get 3 frequencies in a row
       let backOne = freqDataArray[( ( i * index ) + offset ) - 1];

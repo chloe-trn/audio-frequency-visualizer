@@ -48,6 +48,7 @@ body{
   transform: translateY(-50%);
   width: 100%;
   display: flex;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: center;
   height: 400px;
@@ -68,6 +69,7 @@ body{
 .controls{
   background: rgba(230, 234, 242,0.1);
   display:flex;
+  flex-wrap: wrap; 
   visibility: hidden;
   align-items: center;
   padding: 5px 10px;
