@@ -1,5 +1,3 @@
-// instead of creating new object every time, just update one
-
 const colorThemes = [
     ["#F8888A","#F77B7D","#F77F7D","#F7877E","#F88D7F", // citrus
     "#F88F7F","#F8967F","#F99A80","#F9A381","#F9A581","#F9A782","#FAAC82",
