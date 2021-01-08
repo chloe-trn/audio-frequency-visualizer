@@ -1,8 +1,3 @@
-/*
- TODO:
-    - make responsive
-*/
-
 const colorThemes = [
     ["#F8888A","#F77B7D","#F77F7D","#F7877E","#F88D7F", // citrus
     "#F88F7F","#F8967F","#F99A80","#F9A381","#F9A581","#F9A782","#FAAC82",
@@ -95,11 +90,11 @@ class Bars {
     }
     addRemoveHover(state){
         if(state == "add"){
-            for(let i=0; i< numBars; i++){
+            for(let i=0; i< this.numBars; i++){
                 bars[i].classList.add("bar-hover-state");
             }
         }else{
-            for(let i=0; i< numBars; i++){
+            for(let i=0; i< this.numBars; i++){
                 bars[i].classList.remove("bar-hover-state");
             }
         }
@@ -208,7 +203,7 @@ class SelectOptions {
         audio.play();          // play new audio
     }
     // handles selection of new theme
-    changeColor(index,fill){
+    changeColor(index,fill,numBars){
         for(let i=0; i< numBars; i++){
             bars[i].style.background = colorThemes[index][i];
         }
@@ -346,5 +341,5 @@ selectOptions.songs.addEventListener('change', e => {
     selectOptions.changeSong(e.target.value,audioPlayer,audioBars);
 });
 selectOptions.colors.addEventListener('change', e => {
-    selectOptions.changeColor(e.target.value,audioPlayer.fill);
+    selectOptions.changeColor(e.target.value,audioPlayer.fill,audioBars.numBars);
 });
