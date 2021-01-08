@@ -4,48 +4,56 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" href="style.css">
-   <script src="https://kit.fontawesome.com/fd1c611bcf.js" crossorigin="anonymous"></script>
    <title>Audio Visualizer</title>
   </head>
   <body>
-
-    <audio preload="auto" crossorigin="anonymous">
+    <audio preload="auto" crossorigin="anonymous">  <!--Import audio-->
         <source id="source" src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3" type="audio/mpeg" preload="auto">
         Your browser does not support the audio format.
     </audio>
-
-    <div class="container"></div>
-
     <div class="controls">
-        <button class="controlbtn" id="playbtn">
-            <i class="fas fa-play"></i>
-        </button>
+      <!--audio player-->
+      <div class="audio">
+        <img class="controlbtn" id="playbtn" src="play.svg" alt="play icon">
+        <img class="controlbtn display-none" id="pausebtn" src="pause.svg" alt="pause icon">
 
-        <button class="controlbtn" id="pausebtn">
-            <i class="fas fa-pause"></i>
-        </button>
-    </div>
-
-    <div class="choices">
-      <div class="dropdown" id="mp3">
-        <button class="mp3btn">mp3</button>
-        <div class="dropdown-content">
-          <a href="#" class="mp3" id="song1">last summer by ikson</a>
-          <a href="#" class="mp3" id="song2">goosebumps by jaylon ashaun</a>
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress-fill" id="fill"></div>
         </div>
-      </div>
 
-      <div class="dropdown" id="color">
-        <button class="colorbtn">theme</button>
-        <div class="dropdown-content">
-          <a href="#" class="color">citrus</a>
-          <a href="#" class="color">galaxy</a>
-          <a href="#" class="color">ocean</a>
+        <div class="time">
+          <span id="current-time">0:00</span>/<span id="duration">0:00</span>
         </div>
+
+        <div class="volume">
+          <img class="controlbtn" id="soundbtn" src="sound.svg" alt="sound icon">
+          <img class="controlbtn display-none" id="mutebtn" src="mute.svg" alt="mute icon">
+          <input class="slider" type="range" min="0" max="100" value="100" id="volumesldr">
+        </div>
+        
+      </div>
+      <!--song and theme controls -->
+      <div class="mp3-container">
+        <p>mp3</p>
+        <select class="select mp3-select">
+          <option class="mp3" id="song1" value="0">last summer by ikson</option>
+          <option class="mp3" id="song2" value="1">goosebumps by jaylon ashaun</option>
+        </select>
+      </div>
+      
+      <div class="theme-container">
+        <p>theme</p>
+        <select class="select theme-select">
+          <option class="color" value="0">citrus</option>
+          <option class="color" value="1">galaxy</option>
+          <option class="color" value="2">seafoam</option>
+        </select>
       </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <p class="controls-label display-none">show controls</p>
+    <button id="splashbtn" type="button">play</button>
+    <div class="container"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--jQuery import -->
     <script src="script.js"></script> <!--JS import -->
   </body>
 </html>
