@@ -1,24 +1,24 @@
 const colorThemes = [
-    ["#F8888A","#F77B7D","#F77F7D","#F7877E","#F88D7F", // citrus
+    ["#F8888A","#F77F7D","#F7877E","#F88D7F", // citrus
     "#F88F7F","#F8967F","#F99A80","#F9A381","#F9A581","#F9A782","#FAAC82",
-    "#FAB283","#FABB83","#FABD84","#FABF84","#FAC284","#FAC584","#FBCA85",
-    "#FBD385","#FBD686","#FAD888","#F8D98A","#F5DB8F","#F2DE95","#F0E098",
-    "#EEE09A","#ECE29F","#E6E0A0","#E6E6A8","#E4E8AB","#E3EAAE","#E0ECB3",
-    "#DBEEB9","#D6F3C3","#D3F5C8","#D2F6C9","#CFF9D0","#CAFDD7","#C6FFDD"],
+    "#FAB283","#FABB83","#FABD84","#FABF84","#FAC584","#FBCA85","#FBD385",
+    "#FAD888","#F8D98A","#F2DE95","#F0E098","#EEE09A","#ECE29F","#E6E0A0",
+    "#E6E6A8","#E4E8AB","#E3EAAE","#E0ECB3","#DBEEB9","#D6F3C3","#D3F5C8",
+    "#D2F6C9","#CFF9D0","#C6FFDD"],
 
-    ["#13C2E9","#21BCEA","#2FB4E9","#3AAFEA","#45ABEA",  // galaxy
+    ["#13C2E9","#2FB4E9","#3AAFEA","#45ABEA",  // galaxy
     "#49A9EA","#52A5EA","#619EEB","#699BEB","#7098EB","#7694EB","#8190EC",
     "#878DEC","#9587ED","#9E83EC","#A380EC","#B17AEC","#BD74ED","#BF73ED",
-    "#C571ED","#C76FE5","#C86EE0","#CC6BD5","#CF69CC","#D269C7","#D367C1",
-    "#D566BB","#D764B4","#DA61AA","#DD60A2","#DF5E9C","#E15E99","#E45B8E",
-    "#E75985","#E9577D","#EA587E","#F15368","#F25267","#F46270","#F64F59"],
+    "#C571ED","#C76FE5","#C86EE0","#CC6BD5","#D269C7","#D367C1","#D566BB",
+    "#D764B4","#DA61AA","#DF5E9C","#E15E99","#E45B8E","#E75985","#EA587E",
+    "#F15368","#F25267","#F64F59"],
 
-    ["#75EBD6","#75E9D5","#77E8D6","#7AE6D7","#7BE5D7",  // seafoam
+    ["#75EBD6","#77E8D6","#7AE6D7","#7BE5D7",  // seafoam
     "#7CE4D7","#7EE1D8","#7FE1D8","#81E0D9","#82DED9","#83DDD9","#85DBDA",
     "#87DADB","#88D8DB","#89D7DB","#8AD6DB","#8BD5DC","#8CD4DB","#8ED2DC",
-    "#91D1DE","#92CFDE","#93CEDE","#95CCDF","#97CADF","#99CAE0","#9AC8E0",
-    "#9AC7E0","#9BC6E0","#9DC5E1","#9EC3E1","#9FC1E1","#A0C2E2","#A3C0E3",
-    "#A4BEE3","#A6BCE3","#A7BCE4","#A8BAE4","#AAB9E5","#ABB7E4","#ACB6E5"]
+    "#91D1DE","#92CFDE","#93CEDE","#95CCDF","#9AC8E0","#9AC7E0","#9BC6E0",
+    "#9DC5E1","#9EC3E1","#9FC1E1","#A0C2E2","#A3C0E3","#A4BEE3","#A7BCE4",
+    "#A8BAE4","#AAB9E5","#ACB6E5"]
 ];
 const gradients = [
     "linear-gradient(to right, #f7797d, #FBD786, #C6FFDD)", // citrus
@@ -51,9 +51,10 @@ const colors = document.querySelector('.theme-select');
 const songs = document.querySelector('.mp3-select');
 
 const container = document.querySelector(".container");
-const numBars = 40;
+const numBars = 35;
 let bars = [];
 const defaultBarHeight = 8;
+let barHeightMultiplier =2.5;
 const index = 18;   // frequency index interval
 const offset = 75;   // frequency to start indexing at
 
@@ -76,6 +77,7 @@ class Bars {
         this.index = index; 
         this.offset = offset; 
     }
+    // create initial bars for visualization 
     createBars() {
 
         for(let i = 0; i < this.numBars; i++) {
@@ -87,6 +89,7 @@ class Bars {
             this.container.append(bar);
         }
     }
+    // handles if bars can be have pseudo state or not 
     addRemoveHover(state){
         if(state == "add"){
             for(let i=0; i< this.numBars; i++){
@@ -105,6 +108,7 @@ class ControlCenter{
         this.controlsBtn = controlsBtn; 
         this.controls = controls; 
     }
+    // handles if controls is visible 
     showOrHideControls(){
         if(window.getComputedStyle(this.controls).visibility === "hidden"){
             this.controls.style.visibility = "visible";
@@ -128,6 +132,7 @@ class AudioPlayer {
         this.progressBar = progressBar;
         this.fill = fill; 
     }
+    // matches fill progress background color to the chosen theme 
     setFillGradient(index) {
         fill.style.backgroundImage = gradients[index]; 
     }
@@ -235,7 +240,6 @@ audioPlayer.setFillGradient(0);
 audioPlayer.setDuration(0);
 
 // FUNCTIONS:
-
 // create audio context object to get frequency data
 function createAudioContext(){
     let AudioContex = window.AudioContext || window.webkitAudioContext;  // create new audio context object
@@ -274,7 +278,7 @@ function renderBars(){
 
       let averagedFreq = ( backOne + base + forwardOne ) / 3;    // average them
       let height = Math.max(averagedFreq, defaultBarHeight);     // calculate bar height
-      bars[i].style.height = Math.round(height * 2.5) + "px";        // display bar
+      bars[i].style.height = Math.round(height * barHeightMultiplier) + "px";        // display bar
     }
     requestAnimationFrame(renderBars);  // call repeatedly
 }
