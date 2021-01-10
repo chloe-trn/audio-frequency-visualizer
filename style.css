@@ -54,7 +54,7 @@ body{
   height: 400px;
 }
 .bar{
-  width: 20px;
+  width: 14px;
   height: 20px;
   border-radius: 10px;
   margin: 0 5px;
@@ -91,7 +91,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 540px;
+  width: 450px;
   padding: 5px;
 }
 /*buttons*/
@@ -111,7 +111,7 @@ img:focus{
 /*audio progress bar*/
 .progress-bar{
   position:relative;
-  width: 290px;
+  width: 220px;
   height: 11px;
   border-radius: 10px;
   background: white;
@@ -125,12 +125,12 @@ img:focus{
 .volume{
   display: flex;
   align-items: center;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 .slider{
   -webkit-appearance: none;
   appearance: none;
-  width: 70px;
+  width: 60px;
   height: 11px;
   background: #070708;
   outline:0;
@@ -184,4 +184,3 @@ p{
   display: inline;
   margin: 0 3px 0 25px;
 }
-
