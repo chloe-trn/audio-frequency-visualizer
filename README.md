@@ -1,7 +1,7 @@
 <h1 align="center">Audio Frequency Visualizer</h1>
 <h2 align="center"><a  href="https://chloe-trn.github.io/audio-frequency-visualizer/">Live Demo</a></h2>
 
-<p align="center"> Horizontal bars depict the frequency intensity represented in the height of bars from low frequencies (left) to high frequencies (right) as the audio plays. </p>
+<p align="center"> An audio visualizer composed of vertical bars. The height of the bars represent the frequency intensity from low frequencies (left bars) to high frequencies (right bars) as the audio plays. </p>
 
 ## Features 
 * Audio player controls (implemented using only vanilla ES6 Javascript)
