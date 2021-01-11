@@ -71,13 +71,13 @@ class AudioInfo {
 }
 class Bars {
     constructor(container,numBars,defaultBarHeight,index,offset){
-        this.container = container; 
-        this.numBars = numBars; 
-        this.defaultBarHeight = defaultBarHeight; 
-        this.index = index; 
-        this.offset = offset; 
+        this.container = container;
+        this.numBars = numBars;
+        this.defaultBarHeight = defaultBarHeight;
+        this.index = index;
+        this.offset = offset;
     }
-    // create initial bars for visualization 
+    // create initial bars for visualization
     createBars() {
 
         for(let i = 0; i < this.numBars; i++) {
@@ -89,7 +89,7 @@ class Bars {
             this.container.append(bar);
         }
     }
-    // handles if bars can be have pseudo state or not 
+    // handles if bars can be have pseudo state or not
     addRemoveHover(state){
         if(state == "add"){
             for(let i=0; i< this.numBars; i++){
@@ -104,18 +104,18 @@ class Bars {
 }
 class ControlCenter{
     constructor(splashBtn,controlsBtn,controls){
-        this.splashBtn = splashBtn; 
-        this.controlsBtn = controlsBtn; 
-        this.controls = controls; 
+        this.splashBtn = splashBtn;
+        this.controlsBtn = controlsBtn;
+        this.controls = controls;
     }
-    // handles if controls is visible 
+    // handles if controls is visible
     showOrHideControls(){
         if(window.getComputedStyle(this.controls).visibility === "hidden"){
             this.controls.style.visibility = "visible";
             this.controls.style.display = "flex";
             this.controlsBtn.style.top = "55px";
             this.controlsBtn.innerHTML = "hide controls";
-    
+
         }else{
             this.controls.style.display = "none";
             this.controls.style.visibility = "hidden";
@@ -130,11 +130,11 @@ class AudioPlayer {
         this.playBtn = playBtn;
         this.pauseBtn = pauseBtn;
         this.progressBar = progressBar;
-        this.fill = fill; 
+        this.fill = fill;
     }
-    // matches fill progress background color to the chosen theme 
+    // matches fill progress background color to the chosen theme
     setFillGradient(index) {
-        fill.style.backgroundImage = gradients[index]; 
+        fill.style.backgroundImage = gradients[index];
     }
     // handles display of audio duration based on song chosen
     setDuration(index){
@@ -201,9 +201,9 @@ class SelectOptions {
         });
 
         audioPlayer.fill.style.width = "0px";
-        audioPlayer.setDuration(id);              //audio player 
-        audioPlayer.playOrPause("play");          
-        audioBars.addRemoveHover("remove");   
+        audioPlayer.setDuration(id);              //audio player
+        audioPlayer.playOrPause("play");
+        audioBars.addRemoveHover("remove");
         audio.play();          // play new audio
     }
     // handles selection of new theme
@@ -216,7 +216,7 @@ class SelectOptions {
 }
 class Timer {
     constructor(timer){
-        this.timer = timer; 
+        this.timer = timer;
     }
     start(){
         this.timer = setInterval(updateTime,500);
@@ -229,8 +229,8 @@ class Timer {
 // INITIALIZATION OF OBJECTS
 let audioInfo = new AudioInfo();
 let controlCenter = new ControlCenter(splashBtn,controlsBtn,controls);
-let audioBars = new Bars(container,numBars,defaultBarHeight,index,offset,colorThemes);   
-let audioPlayer = new AudioPlayer(playBtn,pauseBtn,progressBar,fill);          
+let audioBars = new Bars(container,numBars,defaultBarHeight,index,offset,colorThemes);
+let audioPlayer = new AudioPlayer(playBtn,pauseBtn,progressBar,fill);
 let volumeControl = new VolumeControl(soundBtn,muteBtn,volumeSlider);
 let selectOptions = new SelectOptions(songs,colors);
 let audioTimer = new Timer(timer);
@@ -257,10 +257,10 @@ function createAudioContext(){
     let freqDataArray = new Uint8Array(freqArrayLength);            // create frequency array of unsigned integer type
 
     analyzerNode.getByteFrequencyData(freqDataArray);               // pass frequency array into the analyzer node and change it into byte format
-   
+
     audioInfo.audioCtx = audioCtx;                 // store audio info in object
-    audioInfo.analyzerNode = analyzerNode; 
-    audioInfo.freqDataArray = freqDataArray; 
+    audioInfo.analyzerNode = analyzerNode;
+    audioInfo.freqDataArray = freqDataArray;
 }
 // change height of bars according to decibal value stored in frequency array
 function renderBars(){
@@ -308,7 +308,7 @@ controlCenter.splashBtn.addEventListener('click', () =>{  // inital setup with d
     audioTimer.start();
     audioBars.addRemoveHover("remove");
     audioPlayer.playOrPause("play");
-    createAudioContext();                    
+    createAudioContext();
     audio.play();
 });
 audio.addEventListener('play', () => {
@@ -335,7 +335,7 @@ audioPlayer.progressBar.addEventListener('click', e => {
 volumeControl.soundBtn.addEventListener('click', () => {
     volumeControl.soundOrMute("mute");
     audio.muted = true;
-    
+
 });
 volumeControl.muteBtn.addEventListener('click', () =>{
     volumeControl.soundOrMute("sound");
