@@ -16,3 +16,6 @@
 * ES6 Javascript
 * CSS
 * HTML5
+
+## Future Work 
+* Responsiveness down to mobile devices 
