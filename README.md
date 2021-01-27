@@ -4,7 +4,7 @@
 <p align="center"> An audio visualizer composed of vertical bars. The height of the bars represent the frequency intensity from low frequencies (left bars) to high frequencies (right bars) as the audio plays. </p>
 
 ## Features 
-* Audio player controls (implemented using only vanilla ES6 Javascript)
+* Audio player controls (implemented using vanilla Javascript [ES6])
 * Volume control
 * Two mp3 audio choices
 * Three color theme choices
@@ -13,7 +13,7 @@
 ## Tools Used
 * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a>
 * MixKit.co - royalty free audio 
-* ES6 Javascript
+* Javascript [ES6]
 * CSS
 * HTML5
 
