@@ -22,8 +22,8 @@ const colorThemes = [
 ];
 const gradients = [
     "linear-gradient(to right, #f7797d, #FBD786, #C6FFDD)", // citrus
-    "linear-gradient(to right, #12c2e9, #c471ed, #f7797d)",  // galaxy
-    "linear-gradient(to right, #74ebd5, #ACB6E5)"            // seafoam
+    "linear-gradient(to right, #12c2e9, #c471ed, #f7797d)", // galaxy
+    "linear-gradient(to right, #74ebd5, #ACB6E5)"           // seafoam
 ];
 
 const songUrls = ['https://res.cloudinary.com/duvpi1rvn/video/upload/v1610075717/Arulo_-_Be_This_Way_iear4b.mp3',
@@ -54,7 +54,7 @@ const container = document.querySelector(".container");
 const numBars = 35;
 let bars = [];
 const defaultBarHeight = 8;
-let barHeightMultiplier =2.5;
+let barHeightMultiplier = 2;
 const index = 18;   // frequency index interval
 const offset = 75;   // frequency to start indexing at
 
