@@ -8,7 +8,6 @@
 * Volume control
 * Two mp3 audio choices
 * Three color theme choices
-* User responsiveness on hover of bars when audio is initialized and paused
 
 ## Tools Used
 * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a>
