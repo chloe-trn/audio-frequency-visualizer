@@ -48,6 +48,8 @@
 
 ### Audio Player Controls
 ![Audio Controls](./read-me-images/audio-player.png)
+* The current MP3 audio can be paused, played, and the user can click to a certain time stamp. 
+* The total length of the song and it's current time stamp is displayed. 
 ### Volume Control 
 <p>
 <img src="/read-me-images/volume-unmute.png" width="150" /> 
