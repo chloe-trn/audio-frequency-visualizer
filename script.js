@@ -26,7 +26,7 @@ const gradients = [
     "linear-gradient(to right, #74ebd5, #ACB6E5)"           // seafoam
 ];
 
-const songUrls = ['/assets/Ikson - Last Summer.mp3','/assets/Arulo - Be This Way.mp3'];
+const songUrls = ['/assets/Ikson-Last-Summer.mp3','/assets/Arulo-Be-This-Way.mp3'];
 const audioDuration = ["166","111"];
 let duration = document.getElementById("duration");
 let currentDuration;
