@@ -66,4 +66,4 @@
 * There are 3 gradient color theme selections, that will apply to the audio bars and audio player controls. 
 
 ## Future Work
-* Responsiveness down to mobile devices.
+* Load more songs and theme choices, potentially incorporate a database.
