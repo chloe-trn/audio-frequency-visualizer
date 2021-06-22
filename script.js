@@ -26,7 +26,7 @@ const gradients = [
     "linear-gradient(to right, #74ebd5, #ACB6E5)"           // seafoam
 ];
 
-const songUrls = ['/assets/Ikson-Last-Summer.mp3','/assets/Arulo-Be-This-Way.mp3'];
+const songUrls = ['https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3','https://res.cloudinary.com/duvpi1rvn/video/upload/v1610075717/Arulo_-_Be_This_Way_iear4b.mp3'];
 const audioDuration = ["166","111"];
 let duration = document.getElementById("duration");
 let currentDuration;
