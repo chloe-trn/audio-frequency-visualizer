@@ -17,22 +17,23 @@
    <title>Audio Visualizer</title>
   </head>
   <body>
+    <div class="wrapper">
     <audio preload="auto" crossorigin="anonymous">  <!--Import audio-->
-        <source id="source" src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1610075717/Arulo_-_Be_This_Way_iear4b.mp3" type="audio/mpeg" preload="auto">
+        <source id="source" src="/assets/Ikson - Last Summer.mp3" type="audio/mpeg" preload="auto">
         Your browser does not support the audio format.
     </audio>
-    <div class="controls">
-      <!--audio player-->
-      <div class="audio">
-        <img class="controlbtn" id="playbtn" src="assets/play.svg" alt="play icon">
-        <img class="controlbtn display-none" id="pausebtn" src="assets/pause.svg" alt="pause icon">
-
-        <div class="progress-bar" id="progress-bar">
-          <div class="progress-fill" id="fill"></div>
-        </div>
-
-        <div class="time">
-          <span id="current-time">0:00</span>/<span id="duration">0:00</span>
+    <div class="controls-wrapper">
+      <div class="controls">
+        <!--audio player-->
+        <div class="player">
+          <img class="controlbtn" id="playbtn" src="assets/play.svg" alt="play icon">
+          <img class="controlbtn display-none" id="pausebtn" src="assets/pause.svg" alt="pause icon">
+          <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="fill"></div>
+          </div>
+          <div class="time">
+            <span id="current-time">0:00</span>/<span id="duration">0:00</span>
+          </div>
         </div>
 
         <div class="volume">
@@ -40,30 +41,33 @@
           <img class="controlbtn display-none" id="mutebtn" src="assets/mute.svg" alt="mute icon">
           <input class="slider" type="range" min="0" max="100" value="100" id="volumesldr">
         </div>
+        <!--song and theme controls -->
+        <div class="select-menu">
+        <div class="mp3-container">
+          <p>mp3</p>
+          <select class="select mp3-select">
+            <option class="mp3" id="song1" value="0">last summer by ikson</option>
+            <option class="mp3" id="song2" value="1">be this way by arulo</option>
+          </select>
+        </div>
 
-      </div>
-      <!--song and theme controls -->
-      <div class="mp3-container">
-        <p>mp3</p>
-        <select class="select mp3-select">
-          <option class="mp3" id="song1" value="0">be this way by arulo</option>
-          <option class="mp3" id="song2" value="1">last summer by ikson</option>
-        </select>
-      </div>
-
-      <div class="theme-container">
-        <p>theme</p>
-        <select class="select theme-select">
-          <option class="color" value="0">citrus</option>
-          <option class="color" value="1">galaxy</option>
-          <option class="color" value="2">seafoam</option>
-        </select>
-      </div>
+        <div class="theme-container">
+          <p>theme</p>
+          <select class="select theme-select">
+            <option class="color" value="0">citrus</option>
+            <option class="color" value="1">galaxy</option>
+            <option class="color" value="2">seafoam</option>
+          </select>
+        </div>
+        </div>
+      </div>   
     </div>
-    <p class="controls-label display-none">show controls</p>
+    <div class="controls-label-wrapper">
+      <p class="controls-label display-none">show controls</p>
+    </div>
     <button id="splashbtn" type="button">play</button>
     <div class="container"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--jQuery import -->
-    <script src="script.js"></script> <!--JS import -->
+    </div>
+    <script src="script.js" async></script> <!--JS import -->
   </body>
 </html>

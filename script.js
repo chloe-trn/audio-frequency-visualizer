@@ -26,21 +26,20 @@ const gradients = [
     "linear-gradient(to right, #74ebd5, #ACB6E5)"           // seafoam
 ];
 
-const songUrls = ['https://res.cloudinary.com/duvpi1rvn/video/upload/v1610075717/Arulo_-_Be_This_Way_iear4b.mp3',
-'https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3'];
-const audioDuration = ["111","166"];
+const songUrls = ['/assets/Ikson - Last Summer.mp3','/assets/Arulo - Be This Way.mp3'];
+const audioDuration = ["166","111"];
 let duration = document.getElementById("duration");
 let currentDuration;
 
 const splashBtn = document.getElementById("splashbtn");
-const controls = document.querySelector(".controls");
+const controls = document.querySelector(".controls-wrapper");
 const controlsBtn = document.querySelector(".controls-label");
 
 const playBtn = document.getElementById("playbtn");
 const pauseBtn = document.getElementById("pausebtn");
 let progressBar = document.getElementById("progress-bar");
-let progressWidth = progressBar.offsetWidth;
 let fill = document.getElementById("fill");
+let progressWidth;
 
 const soundBtn = document.getElementById("soundbtn");
 const muteBtn = document.getElementById("mutebtn");
@@ -110,16 +109,11 @@ class ControlCenter{
     }
     // handles if controls is visible
     showOrHideControls(){
-        if(window.getComputedStyle(this.controls).visibility === "hidden"){
-            this.controls.style.visibility = "visible";
-            this.controls.style.display = "flex";
-            this.controlsBtn.style.top = "55px";
-            this.controlsBtn.innerHTML = "hide controls";
-
+        if(window.getComputedStyle(this.controls).display === "none"){
+            this.controls.style.display = "flex"; 
+            this.controlsBtn.innerHTML = "hide controls";         
         }else{
             this.controls.style.display = "none";
-            this.controls.style.visibility = "hidden";
-            this.controlsBtn.style.top = "13px";
             this.controlsBtn.innerHTML = "show controls";
         }
     }
@@ -156,8 +150,8 @@ class AudioPlayer {
     // handles clicking of audio progress bar, sets current time to new time
     progressClick(e){
         if(!audio.ended){
-            let clickX = e.pageX - progressBar.offsetLeft;
-            let newTime = clickX * currentDuration / progressWidth;
+            let clickX = e.pageX - progressBar.getBoundingClientRect().left;       
+            let newTime = clickX * currentDuration / progressWidth;        
             audio.currentTime = newTime;
             fill.style.width = clickX + 'px';
         }
@@ -239,6 +233,22 @@ audioBars.createBars();
 audioPlayer.setFillGradient(0);
 audioPlayer.setDuration(0);
 
+// INITIALIZE MEDIA QUERY
+progressWidth = (checkWidth() > 576) ? 220: 170; 
+barHeightMultiplier =  (checkWidth() > 576) ? 2 : 1.6
+
+let mq = window.matchMedia('(max-width: 576px)');
+
+mq.addEventListener( "change", (e) => {
+    if (e.matches) {
+    progressWidth = 170;
+    barHeightMultiplier = 1.6; 
+  } else {
+    progressWidth = 220; 
+    barHeightMultiplier = 1.6; 
+  }
+})
+
 // FUNCTIONS:
 // create audio context object to get frequency data
 function createAudioContext(){
@@ -301,6 +311,11 @@ function updateTime(){
         audioBars.addRemoveHover("add");
     }
 }
+// checks the width of the window onload 
+function checkWidth(){
+    return document.documentElement.clientWidth;
+}
+
 // EVENT LISTENERS:
 controlCenter.splashBtn.addEventListener('click', () =>{  // inital setup with defaults
     controlCenter.splashBtn.classList.add("display-none");
