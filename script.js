@@ -1,3 +1,4 @@
+// GLOBAL VARIABLES: 
 const colorThemes = [
     ["#F8888A","#F77F7D","#F7877E","#F88D7F", // citrus
     "#F88F7F","#F8967F","#F99A80","#F9A381","#F9A581","#F9A782","#FAAC82",
@@ -61,6 +62,7 @@ let audio = document.querySelector("audio");
 let currentTime = document.getElementById("current-time");
 let timer;
 
+// CLASSES:
 class AudioInfo {
   constructor(audioCtx,analyzerNode,freqDataArray){
       this.audioCtx = audioCtx;
@@ -233,21 +235,6 @@ audioBars.createBars();
 audioPlayer.setFillGradient(0);
 audioPlayer.setDuration(0);
 
-// INITIALIZE MEDIA QUERY
-progressWidth = (checkWidth() > 576) ? 220: 170; 
-barHeightMultiplier =  (checkWidth() > 576) ? 2 : 1.6
-
-let mq = window.matchMedia('(max-width: 576px)');
-
-mq.addEventListener( "change", (e) => {
-    if (e.matches) {
-    progressWidth = 170;
-    barHeightMultiplier = 1.6; 
-  } else {
-    progressWidth = 220; 
-    barHeightMultiplier = 1.6; 
-  }
-})
 
 // FUNCTIONS:
 // create audio context object to get frequency data
@@ -315,6 +302,22 @@ function updateTime(){
 function checkWidth(){
     return document.documentElement.clientWidth;
 }
+
+// INITIALIZE MEDIA QUERY
+progressWidth = (checkWidth() > 576) ? 220: 170; 
+barHeightMultiplier =  (checkWidth() > 576) ? 2 : 1.6
+
+let mq = window.matchMedia('(max-width: 576px)');
+
+mq.addEventListener( "change", (e) => {
+    if (e.matches) {
+    progressWidth = 170;
+    barHeightMultiplier = 1.6; 
+  } else {
+    progressWidth = 220; 
+    barHeightMultiplier = 1.6; 
+  }
+})
 
 // EVENT LISTENERS:
 controlCenter.splashBtn.addEventListener('click', () =>{  // inital setup with defaults
