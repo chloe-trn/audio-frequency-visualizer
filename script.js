@@ -27,7 +27,8 @@ const gradients = [
     "linear-gradient(to right, #74ebd5, #ACB6E5)"           // seafoam
 ];
 
-const songUrls = ['https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3','https://res.cloudinary.com/duvpi1rvn/video/upload/v1610075717/Arulo_-_Be_This_Way_iear4b.mp3'];
+const songUrls = ['https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3',
+                  'https://res.cloudinary.com/duvpi1rvn/video/upload/v1610075717/Arulo_-_Be_This_Way_iear4b.mp3'];
 const audioDuration = ["166","111"];
 let duration = document.getElementById("duration");
 let currentDuration;
@@ -40,7 +41,7 @@ const playBtn = document.getElementById("playbtn");
 const pauseBtn = document.getElementById("pausebtn");
 let progressBar = document.getElementById("progress-bar");
 let fill = document.getElementById("fill");
-let progressWidth;
+let progressWidth = 170;
 
 const soundBtn = document.getElementById("soundbtn");
 const muteBtn = document.getElementById("mutebtn");
@@ -54,7 +55,7 @@ const container = document.querySelector(".container");
 const numBars = 35;
 let bars = [];
 const defaultBarHeight = 8;
-let barHeightMultiplier = 2;
+let barHeightMultiplier = 1.9;
 const index = 18;   // frequency index interval
 const offset = 75;   // frequency to start indexing at
 
@@ -298,26 +299,6 @@ function updateTime(){
         audioBars.addRemoveHover("add");
     }
 }
-// checks the width of the window onload 
-function checkWidth(){
-    return document.documentElement.clientWidth;
-}
-
-// INITIALIZE MEDIA QUERY
-progressWidth = (checkWidth() > 576) ? 220: 170; 
-barHeightMultiplier =  (checkWidth() > 576) ? 2 : 1.6
-
-let mq = window.matchMedia('(max-width: 576px)');
-
-mq.addEventListener( "change", (e) => {
-    if (e.matches) {
-    progressWidth = 170;
-    barHeightMultiplier = 1.6; 
-  } else {
-    progressWidth = 220; 
-    barHeightMultiplier = 1.6; 
-  }
-})
 
 // EVENT LISTENERS:
 controlCenter.splashBtn.addEventListener('click', () =>{  // inital setup with defaults
