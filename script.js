@@ -81,7 +81,6 @@ class Bars {
     }
     // create initial bars for visualization
     createBars() {
-
         for(let i = 0; i < this.numBars; i++) {
             let bar = document.createElement("div");
             bar.setAttribute("id", "bar"+ i);
@@ -105,12 +104,12 @@ class Bars {
     }
 }
 class ControlCenter{
-    constructor(splashBtn,controlsBtn,controls){
+    constructor(splashBtn,controls){
         this.splashBtn = splashBtn;
-        this.controlsBtn = controlsBtn;
         this.controls = controls;
     }
     // handles if controls is visible
+    /*
     showOrHideControls(){
         if(window.getComputedStyle(this.controls).display === "none"){
             this.controls.style.display = "flex"; 
@@ -119,7 +118,7 @@ class ControlCenter{
             this.controls.style.display = "none";
             this.controlsBtn.innerHTML = "show controls";
         }
-    }
+    }*/
 }
 class AudioPlayer {
     constructor(playBtn,pauseBtn,progressBar,fill){
@@ -225,7 +224,7 @@ class Timer {
 
 // INITIALIZATION OF OBJECTS
 let audioInfo = new AudioInfo();
-let controlCenter = new ControlCenter(splashBtn,controlsBtn,controls);
+let controlCenter = new ControlCenter(splashBtn,controls);
 let audioBars = new Bars(container,numBars,defaultBarHeight,index,offset,colorThemes);
 let audioPlayer = new AudioPlayer(playBtn,pauseBtn,progressBar,fill);
 let volumeControl = new VolumeControl(soundBtn,muteBtn,volumeSlider);
@@ -303,7 +302,7 @@ function updateTime(){
 // EVENT LISTENERS:
 controlCenter.splashBtn.addEventListener('click', () =>{  // inital setup with defaults
     controlCenter.splashBtn.classList.add("display-none");
-    controlCenter.controlsBtn.classList.remove("display-none");
+    controlCenter.controls.style.display = "block";
     audioTimer.start();
     audioBars.addRemoveHover("remove");
     audioPlayer.playOrPause("play");
@@ -313,9 +312,6 @@ controlCenter.splashBtn.addEventListener('click', () =>{  // inital setup with d
 audio.addEventListener('play', () => {
     renderBars();
 })
-controlCenter.controlsBtn.addEventListener('click', () => {
-    controlCenter.showOrHideControls();
-});
 audioPlayer.playBtn.addEventListener('click', () => {
     audioTimer.start();
     audioPlayer.playOrPause("play");

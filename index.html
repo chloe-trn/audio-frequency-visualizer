@@ -8,7 +8,7 @@
  - Tools: HMTL, CSS, Javascript ES6, MixKit.co 
  -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="utf-8">
@@ -18,55 +18,75 @@
   </head>
   <body>
     <div class="wrapper">
-    <audio preload="auto" crossorigin="anonymous">  <!--Import audio-->
-        <source id="source" src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3" type="audio/mpeg" preload="auto">
-        Your browser does not support the audio format.
-    </audio>
-    <div class="controls-wrapper">
-      <div class="controls">
-        <!--audio player-->
-        <div class="player">
-          <img class="controlbtn" id="playbtn" src="assets/play.svg" alt="play icon">
-          <img class="controlbtn display-none" id="pausebtn" src="assets/pause.svg" alt="pause icon">
-          <div class="progress-bar" id="progress-bar">
-            <div class="progress-fill" id="fill"></div>
-          </div>
-          <div class="time">
-            <span id="current-time">0:00</span>/<span id="duration">0:00</span>
-          </div>
-        </div>
+        
+      <!--Audio Source-->
+      <audio preload="auto" crossorigin="anonymous" alt="Audio Visualizer song choice">  
+          <source id="source" src="https://res.cloudinary.com/duvpi1rvn/video/upload/v1609947969/Ikson_-_Last_Summer_xyn0go.mp3" type="audio/mpeg" preload="auto">
+          Your browser does not support the audio format.
+      </audio>
+      
+      <!--Audio and Theme Control Panel -->
+      <div class="controls-wrapper">
+        <section class="controls" aria-label="Audio and theme control panel">
+      
+          <!--Audio Player-->
+          <section class="player" aria-label="Audio player">
+            <img class="controlbtn" id="playbtn" src="assets/play.svg" alt="play icon">
+            <img class="controlbtn display-none" id="pausebtn" src="assets/pause.svg" alt="pause icon">
+            <div class="progress-bar" id="progress-bar">
+              <div class="progress-fill" id="fill"></div>
+            </div>
+            <div class="time">
+              <span id="current-time">0:00</span>/<span id="duration">0:00</span>
+            </div>
+          </section>
+          <!--End Audio Player-->
 
-        <div class="volume">
-          <img class="controlbtn" id="soundbtn" src="assets/sound.svg" alt="sound icon">
-          <img class="controlbtn display-none" id="mutebtn" src="assets/mute.svg" alt="mute icon">
-          <input class="slider" type="range" min="0" max="100" value="100" id="volumesldr">
-        </div>
-        <!--song and theme controls -->
-        <div class="select-menu">
-        <div class="mp3-container">
-          <p>mp3</p>
-          <select class="select mp3-select">
-            <option class="mp3" id="song1" value="0">last summer by ikson</option>
-            <option class="mp3" id="song2" value="1">be this way by arulo</option>
-          </select>
-        </div>
+          <!--Volume Control-->
+          <section class="volume" aria-label="Volume control">
+            <img class="controlbtn" id="soundbtn" src="assets/sound.svg" alt="sound icon">
+            <img class="controlbtn display-none" id="mutebtn" src="assets/mute.svg" alt="mute icon">
+            <input class="slider" type="range" min="0" max="100" value="100" id="volumesldr">
+          </section>
+          <!--End Volume Control-->
 
-        <div class="theme-container">
-          <p>theme</p>
-          <select class="select theme-select">
-            <option class="color" value="0">citrus</option>
-            <option class="color" value="1">galaxy</option>
-            <option class="color" value="2">seafoam</option>
-          </select>
-        </div>
-        </div>
-      </div>   
-    </div>
-    <div class="controls-label-wrapper">
-      <p class="controls-label display-none">show controls</p>
-    </div>
-    <button id="splashbtn" type="button">play</button>
-    <div class="container"></div>
+          <!--MP3 and Color Theme Controls-->
+          <section class="select-menu" aria-label="Mp3 and color theme controls">
+
+            <!--MP3 Control-->
+            <section class="mp3-container" aria-label="Mp3 control">
+              <label for="mp3-select">mp3</label>
+              <select id="mp3-select" class="select mp3-select">
+                <option class="mp3" id="song1" value="0">last summer by ikson</option>
+                <option class="mp3" id="song2" value="1">be this way by arulo</option>
+              </select>
+            </section>
+            <!--End MP3 Control-->
+
+            <!--Color Theme Control-->
+            <section class="theme-container" aria-label="Color theme control">
+              <label for="color-select">color</label>
+              <select id="color-select" class="select theme-select" aria-label="Color theme selection">
+                <option class="color" value="0" selected>citrus</option>
+                <option class="color" value="1">galaxy</option>
+                <option class="color" value="2">seafoam</option>
+              </select>
+            </section>
+            <!--Color Theme Control-->
+
+          </section>
+          <!--End MP3 and Color Theme Controls-->
+
+        </section>   
+      </div>  
+      <!--End Audio and Theme Control Panel -->
+      
+      <!--Start Screen Button-->
+      <button id="splashbtn" aria-label="play audio">play</button>
+
+      <!--Audio Bars-->
+      <section class="container" id="audio-bars" aria-label="Audio bars container"></section>
+
     </div>
     <script src="script.js" async></script> <!--JS import -->
   </body>
