@@ -1,0 +1,75 @@
+<!-- Audio Visualizer
+
+ - horizontal bars depict the frequency intensity represented in height of bars
+ from low frequencies (left) to high frequencies (right) as the audio plays 
+
+ - controls include an audio player, volume control, mp3 selection, and color theme selection 
+
+ - Tools: Typescript, Javascript, HTML, CSS, Web Audio API, MixKit.co 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta charset="utf-8">
+   <link rel="icon" href="assets/favicon.png">
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <title>Audio Visualizer</title>
+  </head>
+  <body>
+    <main class="wrapper">
+      <h1 class="hidden">Audio Frequency Visualizer</h1>
+      <p class="hidden">Press play to start. Click open controls to view audio and color controls.</p>
+      <audio preload="auto" src="assets/Ikson-Last-Summer.mp3">  
+        Your browser does not support the <code>audio</code> element.
+      </audio> 
+      <button id="splashbtn">play</button>
+      <div class="controls-label-wrapper">
+        <button class="controls-label display-none">show controls</button>
+        <div class="controls-wrapper">
+          <div class="controls">
+            <!--audio player-->
+            <div class="player">
+              <button id="playbtn" class="controlbtn"><img src="assets/play.svg" alt="play icon"></button>
+              <button id="pausebtn" class="controlbtn display-none"><img src="assets/pause.svg" alt="pause icon"></button>
+              <label htmlFor="progress-bar" class="hidden">Audio range slider</label>
+              <input class="progress-bar" id="progress-bar" type="range" value="0" min="0" max="166"/> 
+              <div class="time">
+                <span id="elapsed-time">0:00</span>/<span id="duration">0:00</span>
+              </div>
+            </div>
+            <!--volume control-->
+            <div class="volume">
+              <button id="soundbtn" class="controlbtn"><img src="assets/sound.svg" alt="sound icon"></button>
+              <button id="mutebtn" class="controlbtn display-none"><img src="assets/mute.svg" alt="mute icon"></button>
+              <label for="volume-slider" class="hidden">HTML</label>
+              <input id="volume-slider" class="slider" type="range" min="0" max="100" value="100" aria-valuetext="volume level 1 out of 1">
+            </div>
+            <!--song control-->
+            <div class="select-menu">
+            <div class="mp3-container">
+              <label for="mp3-select">mp3</label>
+              <select id="mp3-select" class="select">
+                <option class="mp3" id="song1" value="0">last summer by ikson</option>
+                <option class="mp3" id="song2" value="1">be this way by arulo</option>
+              </select>
+            </div>
+            <!--color theme control-->
+            <div class="theme-container">
+              <label for="theme-select">theme</label>
+              <select id="theme-select" class="select">
+                <option class="color" value="0">citrus</option>
+                <option class="color" value="1">galaxy</option>
+                <option class="color" value="2">seafoam</option>
+              </select>
+            </div>
+            </div>
+          </div>   
+        </div>
+      </div>
+      <!--visualizer container-->
+      <div class="container"></div>
+    </main>
+    <script src="./bundle.js" async></script> <!--JS import -->
+  </body>
+</html>
