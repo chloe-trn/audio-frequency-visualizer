@@ -31,6 +31,19 @@
 * This website is deployed on GitHub Pages.
 * Royalty free audio is sourced from Mixkit.co.
 
+<p>
+<img src="/read-me-images/ts-logo.png" width="100" />
+<img src="/read-me-images/webpack-logo.png" width="250" /> 
+</p>
+
+* UPDATE as of 7/17/2022 - The codebase has been migrated to TypeScript which improves the documentation and development process, and protects the application from failure at runtime. TypeScript also allows for improved script browser compatibility. 
+* Webpack was integrated as a build tool to improve script readability and maintainability.
+* Accessibility updates: 
+    * Upgraded audio player controls to better suit screen readers using an <input type="range"> element and aria-valuetext 
+    * Added keyboard navigation 
+    * Improved HTML semantics
+    * Changed font size from px to rem
+
 ## Features
 ### Start Screen 
 ![Start Screen](./read-me-images/start-screen.png)
@@ -48,8 +61,8 @@
 
 ### Audio Player Controls
 ![Audio Controls](./read-me-images/audio-player.png)
-* The current MP3 audio can be paused, played, and the user can click to a certain time stamp. 
-* The total length of the song and it's current time stamp is displayed. 
+* The current MP3 audio can be paused, played, and the user can skip around to different time stamps.
+* The total length of the song and its current time stamp is displayed. 
 ### Volume Control 
 <p>
 <img src="/read-me-images/volume-unmute.png" width="150" /> 
