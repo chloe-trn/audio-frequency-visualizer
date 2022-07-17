@@ -39,7 +39,7 @@
 * UPDATE as of 7/17/2022 - The codebase has been migrated to TypeScript which improves the documentation and development process, and protects the application from failure at runtime. TypeScript also allows for improved script browser compatibility. 
 * Webpack was integrated as a build tool to improve script readability and maintainability.
 * Accessibility updates: 
-    * Upgraded audio player controls to better suit screen readers using an <input type="range"> element and aria-valuetext 
+    * Upgraded audio player controls to better suit screen readers using an `<input type="range">` element and `aria-valuetext`
     * Added keyboard navigation 
     * Improved HTML semantics
     * Changed font size from px to rem
