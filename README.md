@@ -32,7 +32,7 @@
 * Royalty free audio is sourced from Mixkit.co.
 
 <p>
-<img src="/read-me-images/ts-logo.png" width="100" />
+<img src="/read-me-images/ts-logo.png" width="75" />
 <img src="/read-me-images/webpack-logo.png" width="250" /> 
 </p>
 
@@ -80,3 +80,4 @@
 
 ## Future Work
 * Load more songs and theme choices, potentially incorporate a database.
+* Add option for user to upload their own audio. 
