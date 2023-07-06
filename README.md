@@ -1,48 +1,7 @@
-<h1 align="center">Audio Frequency Visualizer</h1>
-<h2 align="center"><a  href="https://chloe-trn.github.io/audio-frequency-visualizer/">Live Demo</a></h2>
-
-![Main Screenshot](./read-me-images/audio-visualizer.jpg)
-
-<p align="center"> An audio visualizer composed of vertical bars. The height of the bars represent the frequency intensity from low frequencies (left bars) to high frequencies (right bars) as the audio plays. </p>
-
-## Table of Contents
-
-- [Table of contents](#table-of-contents)
-- [Tools Used](#tools-used)
-- [Features](#features)
-  - [Start Screen](#start-screen)
-  - [Audio Bars](#audio-bars)
-  - [Audio Player Controls](#audio-player-controls)
-  - [Volume Control](#volume-control)
-  - [MP3 Selection](#mp3-selection)
-  - [Color Theme Selection](#color-theme-selection)
-- [Future Work](#future-work)
-
-## Tools Used
-<p>
-<img src="/read-me-images/js-logo.png" width="100" /> 
-<img src="/read-me-images/css-logo.png" width="100" />
-<img src="/read-me-images/html5-logo.png" width="100" />
-<img src="/read-me-images/github-logo.png" width="100" />
-<img src="/read-me-images/mixkit-logo.png" width="250" />
-</p>
-
-* This website is created with JavaScript [ES6 syntax], and CSS, and HTML. 
-* This website is deployed on GitHub Pages.
-* Royalty free audio is sourced from Mixkit.co.
-
-<p>
-<img src="/read-me-images/ts-logo.png" width="75" />
-<img src="/read-me-images/webpack-logo.png" width="250" /> 
-</p>
-
-* UPDATE as of 7/17/2022 - The codebase has been migrated to TypeScript which improves the documentation and development process, and protects the application from failure at runtime. TypeScript also allows for improved script browser compatibility. 
-* Webpack was integrated as a build tool to improve script readability and maintainability.
-* Accessibility updates: 
-    * Upgraded audio player controls to better suit screen readers using an `<input type="range">` element and `aria-valuetext`
-    * Added keyboard navigation 
-    * Improved HTML semantics
-    * Changed font size from px to rem
+<h1 align="center">Audio Visualizer</h1>
+<p align="center">A visually engaging simulation that represents audio signals through vibrant vertical bars, with each bar's height corresponding to the intensity of a specific frequency as the audio is played.</p>
+<p align="center"><a href="https://audio-frequency-visualizer.netlify.app/">Live Demo</a></p>
+<br>
 
 ## Features
 ### Start Screen 
@@ -77,7 +36,3 @@
 ### Color Theme Selection 
 ![Colot Theme Selection](./read-me-images/color-selection.png)
 * There are 3 gradient color theme selections, that will apply to the audio bars and audio player controls. 
-
-## Future Work
-* Load more songs and theme choices, potentially incorporate a database.
-* Add option for user to upload their own audio. 
